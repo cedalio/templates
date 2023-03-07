@@ -4,5 +4,5 @@
 
 This schema is designed to cover the data schema for a distributed blog platform. Users can create a simple post, and comments.
 
-[![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com)
+[![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema-button.png)](https://explorer.cedalio.io?email=github@cedalio.com)
 </br>
