@@ -4,7 +4,7 @@
 </a>
 </p>
 <p align="center">
-  Cedalio Templates, for bootstrapping your project.
+  Cedalio Templates, you dont need to start from scratch.
 </p>
 <p align="center">
   <a href="https://docs.cedalio.com/introduction/getting-started"><strong>Quickstart</strong></a> ·
