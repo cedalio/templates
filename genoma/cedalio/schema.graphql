@@ -1,0 +1,17 @@
+type User {
+  "A universally unique identifier (UUID) is a 128-bit label used for information in computer systems."
+  id: UUID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  genotype: [Snp] @relation(type: REFERENCES)
+}
+
+type Snp {
+  id: UUID!
+  user:User! @belongsTo(via:"genotype")
+  rsid: String!
+  chromosome: Int!
+  position:Int!
+  genotype: String!
+}

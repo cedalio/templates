@@ -1,0 +1,27 @@
+type User{
+    id: UUID!
+    firstName: String
+    lastName: String
+    email: String!
+    age: Int
+    address: String!
+    profilePicture: String
+    nftRewards:[Reward!] @relation(type: REFERENCES)
+    }
+
+type Brand {
+    id: UUID!
+    name: String!
+    link: String
+    followers: [User!] @relation(type: REFERENCES)
+    address: String!
+    nftReward: [Reward!] @relation(type: REFERENCES)
+}
+type Reward {
+    id: UUID!
+    name: String!
+    description: String
+    image: String
+    productLink: String
+    valueUSD: Int
+  }

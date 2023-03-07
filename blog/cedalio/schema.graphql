@@ -1,0 +1,22 @@
+type User {
+  id: UUID!
+  firstName: String!
+  lastName: String!
+  emails: [String!]
+  age: Int!
+  posts: [Post] @relation(type: REFERENCES)
+}
+
+type Post {
+  slug: String! @unique
+  title: String!
+  content: String
+  user: User!
+  comments: [Comment] @relation(type: REFERENCES)
+}
+
+type Comment {
+  content: String!
+  user: User!
+  post: Post! @belongsTo(via:"comments")
+}
