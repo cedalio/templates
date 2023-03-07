@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://cedalio.com">
-    <img src="https://cedalio.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9a99bc27-72eb-4790-8eae-84a1ce2710f6%2FCedalio_Iso_-_Rounded.png?id=0525abd7-acfb-4621-9d98-d706c5cc47cb&table=block&spaceId=709e6015-171d-448c-87e0-279a60f5c6c8&width=800&userId=&cache=v2" height="100">
+    <img src="https://cedalio-static-content.s3.amazonaws.com/cedalio-logo-small.png" height="100">
 </a>
 </p>
 <p align="center">
@@ -23,8 +23,8 @@ Pick a template schema and deploy a backend in seconds.
 
 | Name       | Schema                                                       | Deploy                                                                                                                                                                                                |
 | ---------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Blog       | [View schema](/templates/blog/cedalio/schema.graphql)       | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com)         |
-| Genoma   | [View schema](/templates/genoma/cedalio/schema.graphql)   | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com) |
-| Reward Program  | [View schema](/templates/reward/cedalio/schema.graphql)   | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com)     |
-| Todo       | [View schema](/templates/to-do/cedalio/schema.graphql)       | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com)         |
-| User Profile    | [View schema](/templates/user-profile/cedalio/schema.graphql)    | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com) |
+| Blog       | [View schema](/blog/cedalio/schema.graphql)       | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com)         |
+| Genoma   | [View schema](/genoma/cedalio/schema.graphql)   | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com) |
+| Reward Program  | [View schema](/reward/cedalio/schema.graphql)   | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com)     |
+| Todo       | [View schema](/to-do/cedalio/schema.graphql)       | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com)         |
+| User Profile    | [View schema](/user-profile/cedalio/schema.graphql)    | [![Deploy to Cedalio](https://cedalio-static-content.s3.amazonaws.com/deploy-schema.png)](https://explorer.cedalio.io?email=github@cedalio.com) |
