@@ -12,5 +12,13 @@ type Post {
   slug: String!
   title: String!
   content: String
-  comments: [String]
+  user: User! @belongsTo(via:"posts")
+  comments: [Comment] @relation(type: REFERENCES)
+}
+
+type Comment {
+  id: UUID!
+  content: String!
+  user: User! @relation(type: REFERENCES)
+  post: Post! @belongsTo(via:"comments")
 }
