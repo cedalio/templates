@@ -5,6 +5,7 @@ type User {
   emails: [String!]
   age: Int!
   posts: [Post] @relation(type: REFERENCES)
+  comments: [Comment] @relation(type: REFERENCES)
 }
 
 type Post {
@@ -19,6 +20,6 @@ type Post {
 type Comment {
   id: UUID!
   content: String!
-  user: User! @relation(type: REFERENCES)
+  user: User! @belongsTo(via:"comments")
   post: Post! @belongsTo(via:"comments")
 }
