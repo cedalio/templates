@@ -8,15 +8,9 @@ type User {
 }
 
 type Post {
-  slug: String! @unique
+  id: UUID!
+  slug: String!
   title: String!
   content: String
-  user: User!
-  comments: [Comment] @relation(type: REFERENCES)
-}
-
-type Comment {
-  content: String!
-  user: User!
-  post: Post! @belongsTo(via:"comments")
+  comments: [String]
 }
