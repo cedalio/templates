@@ -1,0 +1,87 @@
+type ProductiveProcess {
+  id: UUID!
+  period: Period! @embedded
+  productiveProcessId: String!
+  milledDate: DateTime!
+  mashDate: DateTime!
+  mashing: MashingStage @relation(type: REFERENCES)
+  wash: WashStage @relation(type: REFERENCES)
+  spirit: DestilingStage @relation(type: REFERENCES)
+}
+
+type Period {
+  name: String!
+  note: String
+  startDate: DateTime!
+  endDate: DateTime!
+}
+
+type MashingStage {
+    id: UUID!
+    productiveProcess: ProductiveProcess @belongsTo(via:"mashing")
+    startTimestamp: DateTime
+    endTimestamp: DateTime
+    input: MashingDataSet @relation(type: REFERENCES)
+    output: MashingDataSet @relation(type: REFERENCES)
+}
+
+type MashingDataSet{
+    id: UUID!
+    WaterLitres: Float
+    flourRatio: Float
+    maltWeight: Float
+    mashVariety: String
+    WaterSproutTemp: Float
+    processWaterMeterReading: Float
+    mashTunOperator: String
+    mashTunNotes: String
+}
+
+type WashStage {
+    id: UUID!
+    productiveProcess: ProductiveProcess @belongsTo(via:"wash")
+    startTimestamp: DateTime
+    endTimestamp: DateTime
+    finalGravity: Float
+    fermentationTime: Int
+    washValvesClosed: Boolean
+    washCausticCleaned: Boolean
+    washOperator: String
+    washNotes: String
+    input: WashdataSet @relation(type: REFERENCES)
+    output: WashdataSet @relation(type: REFERENCES)
+}
+
+type WashdataSet {
+    id: UUID!
+    washbackTemp: Float
+    washSampleTemp: Float
+    washDateAndTimeCharged: String
+    washVolumeCharged: Float
+    washDateAndTimeRunning: String
+    washDateAndTimeOff: String
+    washTemperatureTimeOff: Int
+    washHydrometerReadingTimeOff: Int
+}
+
+type SpiritStage {
+    id: UUID!
+    productiveProcess: ProductiveProcess @belongsTo(via:"spirit")
+    startTimestamp: DateTime
+    endTimestamp: DateTime
+    spiritStatus: String
+    spiritRunDateAndTime: String
+    LWFRVolume: Float
+    spiritChargedVolumeCharged: Float
+    spiritChargedValvesClosed: Boolean
+    foreshotsStartTime: Int
+    timeOnSpirit: Int
+    hydrometerTimeOnSpirit: Int
+    temperatureTimeOnSpirit: Float
+    timeOffSpirit: Int
+    hydrometerTimeOffSpirit: Int
+    temperatureTimeOffSpirit: Float
+    timeStillOff: Int
+    hydrometerTimeStillOff: Int
+    temperatureTimeStillOff: Float
+}
