@@ -3,7 +3,9 @@ type User {
   firstName: String!
   lastName: String!
   emails: [String!]
-  age: Int!
+  dateOfBirth: Date
+  lastUpdate: DateTime
+  avatar: Url
   posts: [Post] @relation(type: REFERENCES)
 }
 
