@@ -6,19 +6,22 @@ type User {
   dateOfBirth: Date
   lastUpdate: DateTime
   avatar: Url
+  userWallet: EVMAccountAddress
   posts: [Post] @relation(type: REFERENCES)
 }
 
 type Post {
-  slug: String! @unique
+  id: UUID!
+  slug: String!
   title: String!
   content: String
-  user: User!
+  user: User! @belongsTo(via:"posts")
   comments: [Comment] @relation(type: REFERENCES)
 }
 
 type Comment {
+  id: UUID!
   content: String!
-  user: User!
+  user: User! @relation(type: REFERENCES)
   post: Post! @belongsTo(via:"comments")
 }
