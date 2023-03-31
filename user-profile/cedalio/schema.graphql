@@ -4,9 +4,9 @@ type User {
   firstName: String
   lastName: String
   email: String!
-  profilePicture: String
+  profilePicture: Url
   "Date of Birth should match this format YYYY-MM-DD"
-  dateOfBirth: String
+  dateOfBirth: Date
   actions: [Action] @relation(type: REFERENCES)
   preferences: [Preference] @relation(type: REFERENCES)
 }
@@ -19,7 +19,7 @@ type Preference {
   "Variable between 1 to 10, were 1 it's less important and 10 more"
   weight: Int
   "This timestamp will represent the last time this preference was updated. If you want to calculate cadence you should use this field. Date Format YYYY-MM-DD"
-  timestamp: String
+  timestamp: DateTime
 }
 type Action {
   id: UUID!
@@ -30,5 +30,5 @@ type Action {
   "Amount of times that this action was made"
   amount: Int
   "This timestamp will represent the last time this action was updated. If you want to calculate cadence you should use this field. Date Format YYYY-MM-DD"
-  timestamp: String
+  timestamp: DateTime
 }
