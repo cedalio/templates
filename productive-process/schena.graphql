@@ -1,0 +1,81 @@
+type ProductiveProcess @model{
+  period: Period!
+  productiveProcessId: String!
+  milledDate: DateTime!
+  mashDate: DateTime!
+  mashing: MashingStage
+  wash: WashStage
+  spirit: DestilingStage
+}
+
+type Period @model{
+  name: String!
+  note: String
+  startDate: DateTime!
+  endDate: DateTime!
+}
+
+type MashingStage @model{
+    productiveProcess: ProductiveProcess
+    startTimestamp: DateTime
+    endTimestamp: DateTime
+    input: MashingDataSet @relation(name: "mashing-stage-input")
+    output: MashingDataSet @relation(name: "mashing-stage-output")
+}
+
+type MashingDataSet @model{
+    WaterLitres: Float
+    flourRatio: Float
+    maltWeight: Float
+    mashVariety: String
+    WaterSproutTemp: Float
+    processWaterMeterReading: Float
+    mashTunOperator: String
+    mashTunNotes: String
+}
+
+type WashStage @model{
+    productiveProcess: ProductiveProcess 
+    startTimestamp: DateTime
+    endTimestamp: DateTime
+    finalGravity: Float
+    fermentationTime: Int
+    washValvesClosed: Boolean
+    washCausticCleaned: Boolean
+    washOperator: String
+    washNotes: String
+    input: WashdataSet @relation(name: "wash-stage-input")
+    output: WashdataSet @relation(name: "wash-stage-input")
+}
+
+type WashdataSet @model{
+    washbackTemp: Float
+    washSampleTemp: Float
+    washDateAndTimeCharged: String
+    washVolumeCharged: Float
+    washDateAndTimeRunning: String
+    washDateAndTimeOff: String
+    washTemperatureTimeOff: Int
+    washHydrometerReadingTimeOff: Int
+}
+
+type SpiritStage @model{
+    productiveProcess: ProductiveProcess 
+    startTimestamp: DateTime
+    endTimestamp: DateTime
+    spiritStatus: String
+    spiritRunDateAndTime: String
+    LWFRVolume: Float
+    spiritChargedVolumeCharged: Float
+    spiritChargedValvesClosed: Boolean
+    foreshotsStartTime: Int
+    timeOnSpirit: Int
+    hydrometerTimeOnSpirit: Int
+    temperatureTimeOnSpirit: Float
+    timeOffSpirit: Int
+    hydrometerTimeOffSpirit: Int
+    temperatureTimeOffSpirit: Float
+    timeStillOff: Int
+    hydrometerTimeStillOff: Int
+    temperatureTimeStillOff: Float
+}
