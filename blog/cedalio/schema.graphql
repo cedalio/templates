@@ -1,27 +1,24 @@
-type User {
- id: UUID!
+type User @model {
  firstName: String!
  lastName: String!
- emails: [String!]
+ email: Email! @unique
  dateOfBirth: Date
  lastUpdate: DateTime
- avatar: Url
- userWallet: EVMAccountAddress
- posts: [Post] @relation(type: REFERENCES)
- comments: [Comment] @relation(type: REFERENCES)
+ avatar: URL
+ userWallet: String
+ posts: [Post] 
 }
 
-type Post {
-  id: UUID!
-  slug: String!
+type Post @model{
+  slug: String! @unique
   title: String!
   content: String
-  user: User! @belongsTo(via:"posts")
+  author: User!
+  comments: [Comment]
   }
 
-type Comment {
-  id: UUID!
+type Comment @model{
   content: String!
-  user: User! @belongsTo(via:"comments")
-  post: Post! @relation(type: REFERENCES)
+  author: User! 
+  post: Post!
 }

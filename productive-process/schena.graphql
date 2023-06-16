@@ -1,32 +1,29 @@
-type ProductiveProcess {
-  id: UUID!
-  period: Period! @embedded
+type ProductiveProcess @model{
+  period: Period!
   productiveProcessId: String!
   milledDate: DateTime!
   mashDate: DateTime!
-  mashing: MashingStage @relation(type: REFERENCES)
-  wash: WashStage @relation(type: REFERENCES)
-  spirit: DestilingStage @relation(type: REFERENCES)
+  mashing: MashingStage
+  wash: WashStage
+  spirit: DestilingStage
 }
 
-type Period {
+type Period @model{
   name: String!
   note: String
   startDate: DateTime!
   endDate: DateTime!
 }
 
-type MashingStage {
-    id: UUID!
-    productiveProcess: ProductiveProcess @belongsTo(via:"mashing")
+type MashingStage @model{
+    productiveProcess: ProductiveProcess
     startTimestamp: DateTime
     endTimestamp: DateTime
-    input: MashingDataSet @relation(type: REFERENCES)
-    output: MashingDataSet @relation(type: REFERENCES)
+    input: MashingDataSet @relation(name: "mashing-stage-input")
+    output: MashingDataSet @relation(name: "mashing-stage-output")
 }
 
-type MashingDataSet{
-    id: UUID!
+type MashingDataSet @model{
     WaterLitres: Float
     flourRatio: Float
     maltWeight: Float
@@ -37,9 +34,8 @@ type MashingDataSet{
     mashTunNotes: String
 }
 
-type WashStage {
-    id: UUID!
-    productiveProcess: ProductiveProcess @belongsTo(via:"wash")
+type WashStage @model{
+    productiveProcess: ProductiveProcess 
     startTimestamp: DateTime
     endTimestamp: DateTime
     finalGravity: Float
@@ -48,12 +44,11 @@ type WashStage {
     washCausticCleaned: Boolean
     washOperator: String
     washNotes: String
-    input: WashdataSet @relation(type: REFERENCES)
-    output: WashdataSet @relation(type: REFERENCES)
+    input: WashdataSet @relation(name: "wash-stage-input")
+    output: WashdataSet @relation(name: "wash-stage-input")
 }
 
-type WashdataSet {
-    id: UUID!
+type WashdataSet @model{
     washbackTemp: Float
     washSampleTemp: Float
     washDateAndTimeCharged: String
@@ -64,9 +59,8 @@ type WashdataSet {
     washHydrometerReadingTimeOff: Int
 }
 
-type SpiritStage {
-    id: UUID!
-    productiveProcess: ProductiveProcess @belongsTo(via:"spirit")
+type SpiritStage @model{
+    productiveProcess: ProductiveProcess 
     startTimestamp: DateTime
     endTimestamp: DateTime
     spiritStatus: String

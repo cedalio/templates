@@ -1,9 +1,14 @@
-type Todo {
-   id: UUID!
+type Todo @model{
    title: String!
    description: String
    priority: Int!
    tags: [String!]
    "Posibles status, ready, done and deleted."
-   status: String
+   status: Status
+}
+
+enum Status {
+  DONE
+  DELETED
+  READY
 }

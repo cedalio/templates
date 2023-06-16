@@ -1,27 +1,24 @@
-type User{
-    id: UUID!
+type User @model{
     firstName: String
     lastName: String
-    email: String!
-    age: Int
+    email: Email! @unique
+    age: Date
     address: String!
-    profilePicture: String
-    nftRewards:[Reward!] @relation(type: REFERENCES)
+    profilePicture: URL
+    nftRewards:[Reward!]
     }
 
-type Brand {
-    id: UUID!
+type Brand @model{
     name: String!
-    link: String
-    followers: [User!] @relation(type: REFERENCES)
+    link: URL
+    followers: [User!]
     address: String!
-    nftReward: [Reward!] @relation(type: REFERENCES)
+    nftReward: [Reward!]
 }
-type Reward {
-    id: UUID!
+type Reward @model{
     name: String!
     description: String
-    image: String
-    productLink: String
+    image: URL
+    productLink: URL
     valueUSD: Int
   }
